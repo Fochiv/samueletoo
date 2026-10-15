@@ -9,6 +9,22 @@
     });
   }
 
+  const backToTop = document.querySelector('.back-to-top');
+  if (backToTop) {
+    const updateBackToTop = () => {
+      const visible = window.scrollY > 320;
+      backToTop.classList.toggle('is-visible', visible);
+      backToTop.setAttribute('aria-hidden', String(!visible));
+      backToTop.tabIndex = visible ? 0 : -1;
+    };
+    window.addEventListener('scroll', updateBackToTop, { passive: true });
+    updateBackToTop();
+    backToTop.addEventListener('click', () => {
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+    });
+  }
+
   const form = document.querySelector('#application-form');
   if (!form) return;
   const steps = [...form.querySelectorAll('.form-step')];

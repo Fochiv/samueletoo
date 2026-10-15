@@ -100,6 +100,18 @@ function tr(string $fr, string $en): string {
 }
 
 function url(string $page, array $params = []): string {
+    $adminRoutes = [
+        'admin' => '/admin/',
+        'admin-login' => '/admin/login.php',
+        'admin-logout' => '/admin/logout.php',
+        'admin-applications' => '/admin/applications.php',
+        'admin-application' => '/admin/application.php',
+        'admin-settings' => '/admin/settings.php',
+        'admin-testimonials' => '/admin/testimonials.php',
+    ];
+    if (isset($adminRoutes[$page])) {
+        return $adminRoutes[$page] . ($params ? '?' . http_build_query($params) : '');
+    }
     return 'index.php?' . http_build_query(['page' => $page] + $params);
 }
 

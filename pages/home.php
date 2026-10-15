@@ -6,6 +6,7 @@
     <h1><?= e(tr('Les idées qui font avancer demain.', 'Ideas that move tomorrow forward.')) ?></h1>
     <p class="hero-lead"><?= e(tr('Vous portez un projet à impact ? Présentez-le dans le cadre du programme de la Fondation Samuel Eto’o.', 'Building a project with impact? Present it to the Samuel Eto’o Foundation programme.')) ?></p>
     <div class="hero-actions"><a class="button button-green" href="<?= e(url('apply')) ?>"><?= e(tr('Soumettre mon projet', 'Submit your project')) ?> <i class="bi bi-arrow-right"></i></a><a class="button button-outline" href="<?= e(url('program')) ?>"><?= e(tr('Découvrir le programme', 'Discover the programme')) ?></a></div>
+    <a class="button hero-track-link" href="<?= e(url('track')) ?>"><i class="bi bi-search"></i> <?= e(tr('Suivre ma candidature', 'Track my application')) ?></a>
     <p class="hero-note"><i class="bi bi-info-circle"></i> <?= e(tr('Chaque candidature est étudiée selon les critères du programme. Le dépôt ne garantit pas un financement.', 'Every application is reviewed against programme criteria. Applying does not guarantee funding.')) ?></p>
   </div>
   <a class="hero-scroll" href="#programme"><span><?= e(tr('Défiler pour découvrir', 'Scroll to discover')) ?></span><i class="bi bi-arrow-down"></i></a>

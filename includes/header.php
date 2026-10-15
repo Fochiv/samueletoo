@@ -22,18 +22,21 @@ $flash = get_flash();
   <div class="container nav-wrap">
     <a class="brand" href="index.php" aria-label="Accueil Fondation Samuel Eto’o">
       <img src="logo.png" alt="" class="brand-mark">
-      <span>FONDATION <b>SAMUEL ETO’O</b></span>
+      <span><?= e(tr('FONDATION SAMUEL ETO’O', 'SAMUEL ETO’O FOUNDATION')) ?></span>
     </a>
-    <button class="menu-toggle" aria-label="<?= e(tr('Ouvrir le menu', 'Open menu')) ?>" aria-expanded="false"><i class="bi bi-list"></i></button>
     <nav class="main-nav">
+      <a href="<?= e(url('home')) ?>"><?= e(tr('Accueil', 'Home')) ?></a>
       <a href="<?= e(url('about')) ?>"><?= e(tr('La fondation', 'The foundation')) ?></a>
       <a href="<?= e(url('program')) ?>"><?= e(tr('Le programme', 'Programme')) ?></a>
       <a href="<?= e(url('criteria')) ?>"><?= e(tr('Critères', 'Eligibility')) ?></a>
       <a href="<?= e(url('faq')) ?>">FAQ</a>
       <a href="<?= e(url('contact')) ?>"><?= e(tr('Contact', 'Contact')) ?></a>
       <a class="nav-track" href="<?= e(url('track')) ?>"><?= e(tr('Suivre mon dossier', 'Track application')) ?></a>
-      <a class="lang-switch" href="<?= e(url($_GET['page'] ?? 'home', ['lang' => $lang === 'fr' ? 'en' : 'fr'])) ?>"><?= $lang === 'fr' ? 'EN' : 'FR' ?></a>
     </nav>
+    <div class="header-actions">
+      <a class="lang-switch" href="<?= e(url($_GET['page'] ?? 'home', ['lang' => $lang === 'fr' ? 'en' : 'fr'])) ?>" lang="<?= $lang === 'fr' ? 'en' : 'fr' ?>" aria-label="<?= e(tr('Passer en anglais', 'Switch to French')) ?>"><?= $lang === 'fr' ? 'EN' : 'FR' ?></a>
+      <button class="menu-toggle" aria-label="<?= e(tr('Ouvrir le menu', 'Open menu')) ?>" aria-expanded="false"><i class="bi bi-list"></i></button>
+    </div>
   </div>
 </header>
 <?php if ($flash): ?>

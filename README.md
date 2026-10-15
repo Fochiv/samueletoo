@@ -16,6 +16,8 @@ Le site public peut s’afficher sans base configurée. Les formulaires, le suiv
 
 Sur Hostinger, définissez le répertoire public du site sur la racine de ce projet et vérifiez que PHP 8.1+ ainsi que PDO MySQL sont activés. Si votre offre ne permet pas les variables d’environnement, créez `includes/config.local.php` (fichier ignoré par Git, avec des permissions restreintes) qui retourne un tableau associatif contenant les clés `DB_HOST`, `DB_NAME`, `DB_USER` et `DB_PASSWORD`.
 
+L’espace d’administration utilise les chemins `/admin/`, `/admin/login.php`, `/admin/logout.php`, `/admin/applications.php`, `/admin/application.php`, `/admin/settings.php` et `/admin/testimonials.php`. Le compte initial est créé uniquement par `php scripts/create_admin.php`, avec `ADMIN_EMAIL` et `ADMIN_PASSWORD` fournis par l’environnement; aucun mot de passe n’est intégré au code.
+
 ## À savoir
 
 - L’application utilise des requêtes PDO préparées, des jetons CSRF, l’échappement HTML, des sessions HTTP-only, une expiration de session et une vérification des mots de passe hachés.

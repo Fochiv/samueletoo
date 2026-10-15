@@ -1,6 +1,15 @@
 Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteRule ^admin/?$ index.php?page=admin [QSA,L]
+  RewriteRule ^admin/index\.php$ index.php?page=admin [QSA,L]
+  RewriteRule ^admin/login\.php$ index.php?page=admin-login [QSA,L]
+  RewriteRule ^admin/logout\.php$ index.php?page=admin-logout [QSA,L]
+  RewriteRule ^admin/applications\.php$ index.php?page=admin-applications [QSA,L]
+  RewriteRule ^admin/application\.php$ index.php?page=admin-application [QSA,L]
+  RewriteRule ^admin/settings\.php$ index.php?page=admin-settings [QSA,L]
+  RewriteRule ^admin/testimonials\.php$ index.php?page=admin-testimonials [QSA,L]
+  RewriteRule ^admin/ - [R=404,L]
   RewriteRule (^|/)\.(git|agents|local)(/|$) - [F,L]
 </IfModule>
 <FilesMatch "^\.">

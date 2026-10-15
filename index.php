@@ -55,18 +55,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'track_application' => 'track',
             default => 'contact',
         };
-        redirect('index.php?page=' . $failurePage);
+        redirect(url($failurePage));
     } catch (Throwable $e) {
         error_log('Request failed: ' . $e->getMessage());
         flash('error', tr('Une erreur est survenue. Veuillez réessayer.', 'Something went wrong. Please try again.'));
-        redirect('index.php?page=' . match ($action) {
+        redirect(url(match ($action) {
             'submit_application' => 'apply',
             'admin_login' => 'admin-login',
             'admin_update_application', 'admin_update_settings', 'admin_save_testimonial', 'admin_delete_testimonial' => 'admin',
             'admin_export_csv' => 'admin-applications',
             'track_application' => 'track',
             default => 'contact',
-        });
+        }));
     }
 }
 
