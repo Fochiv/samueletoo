@@ -1,0 +1,11 @@
+<section class="page-hero"><div class="container"><p class="eyebrow"><span></span><?= e(tr('LE PROGRAMME', 'THE PROGRAMME')) ?></p><h1><?= e(tr('Un cadre pour présenter votre projet.', 'A way to present your project.')) ?></h1><p><?= e(tr('Le programme recueille les candidatures de porteurs de projets et permet à l’équipe d’en étudier la pertinence et les besoins.', 'The programme receives applications from project leaders and allows the team to review their fit and needs.')) ?></p></div></section>
+<section class="section section-paper"><div class="container"><div class="section-heading"><div><p class="eyebrow eyebrow-dark"><span></span><?= e(tr('DOMAINES D’INTERVENTION', 'AREAS OF FOCUS')) ?></p><h2><?= e(tr('Des projets à impact dans plusieurs secteurs.', 'Projects with impact across different sectors.')) ?></h2></div></div><div class="domain-grid">
+<?php foreach ([
+ ['bi-tree', 'Agriculture', 'Production, transformation, élevage et chaînes de valeur durables.'],
+ ['bi-briefcase', 'Entrepreneuriat', 'Petites entreprises, artisanat et initiatives créatrices d’emplois.'],
+ ['bi-lightning-charge', 'Innovation', 'Solutions technologiques et services répondant à des besoins locaux.'],
+ ['bi-heart-pulse', 'Santé', 'Actions qui favorisent le bien-être et l’accès aux services essentiels.'],
+ ['bi-book', 'Éducation', 'Formation, apprentissage et développement de compétences.'],
+ ['bi-people', 'Impact social', 'Initiatives associatives et communautaires, selon les règles du programme.'],
+] as [$icon, $title, $text]): ?><article class="domain-card"><span class="icon-box"><i class="bi <?= e($icon) ?>"></i></span><h3><?= e(tr($title, $title)) ?></h3><p><?= e(tr($text, $text)) ?></p></article><?php endforeach; ?>
+</div><div class="notice-box"><i class="bi bi-info-circle"></i><p><?= e(tr('La liste des secteurs est indicative. L’éligibilité et la disponibilité d’un accompagnement dépendent des critères et des priorités en vigueur.', 'This list is indicative. Eligibility and available support depend on current criteria and priorities.')) ?></p></div><a class="button button-green" href="<?= e(url('apply')) ?>"><?= e(tr('Soumettre mon projet', 'Submit your project')) ?> <i class="bi bi-arrow-right"></i></a></div></section>
