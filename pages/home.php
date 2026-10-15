@@ -11,8 +11,6 @@
   </div>
   <a class="hero-scroll" href="#programme"><span><?= e(tr('Défiler pour découvrir', 'Scroll to discover')) ?></span><i class="bi bi-arrow-down"></i></a>
 </section>
-<section class="trust-strip"><div class="container trust-inner"><span><i class="bi bi-shield-check"></i> <?= e(tr('Candidature confidentielle', 'Confidential application')) ?></span><span><i class="bi bi-card-checklist"></i> <?= e(tr('Suivi par numéro de dossier', 'Application reference tracking')) ?></span><span><i class="bi bi-globe2"></i> <?= e(tr('Accessible en français et en anglais', 'Available in French and English')) ?></span></div></section>
-<section class="quick-facts"><div class="container quick-facts-inner"><p><?= e(tr('LE PROGRAMME EN REPÈRES','THE PROGRAMME AT A GLANCE')) ?></p><div><strong>06</strong><span><?= e(tr('domaines présentés','areas covered')) ?></span></div><div><strong>05</strong><span><?= e(tr('étapes de candidature','application steps')) ?></span></div><div><strong>02</strong><span><?= e(tr('langues disponibles','languages available')) ?></span></div></div></section>
 <section id="programme" class="section section-paper">
   <div class="container">
     <div class="section-heading"><div><p class="eyebrow eyebrow-dark"><span></span><?= e(tr('LE PROGRAMME', 'THE PROGRAMME')) ?></p><h2><?= e(tr('Du potentiel à un projet concret.', 'From potential to a tangible project.')) ?></h2></div><p><?= e(tr('Un espace pour présenter une initiative, expliquer son impact et faire étudier ses besoins d’accompagnement.', 'A place to present an initiative, explain its impact and have its support needs reviewed.')) ?></p></div>

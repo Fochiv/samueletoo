@@ -31,6 +31,7 @@ $flash = get_flash();
       <a href="<?= e(url('criteria')) ?>"><?= e(tr('Critères', 'Eligibility')) ?></a>
       <a href="<?= e(url('faq')) ?>">FAQ</a>
       <a href="<?= e(url('contact')) ?>"><?= e(tr('Contact', 'Contact')) ?></a>
+      <a href="<?= e(url('privacy')) ?>"><?= e(tr('Politique de confidentialité', 'Privacy policy')) ?></a>
       <a class="nav-track" href="<?= e(url('track')) ?>"><?= e(tr('Suivre mon dossier', 'Track application')) ?></a>
     </nav>
     <div class="header-actions">
