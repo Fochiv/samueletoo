@@ -27,6 +27,30 @@
 <section class="section about-preview">
   <div class="container split-layout"><div class="about-photo"><img src="images/images2.jpg" alt="<?= e(tr('Équipe réunie devant le Pavillon Samuel Eto’o', 'Team gathered outside the Samuel Eto’o Pavilion')) ?>"><span class="photo-caption"><i class="bi bi-geo-alt"></i> <?= e(tr('Une ambition tournée vers les communautés', 'An ambition focused on communities')) ?></span></div><div class="about-copy"><p class="eyebrow eyebrow-dark"><span></span><?= e(tr('NOTRE ENGAGEMENT', 'OUR COMMITMENT')) ?></p><h2><?= e(tr('Faire grandir les initiatives porteuses d’avenir.', 'Helping promising initiatives grow.')) ?></h2><p><?= e(tr('La Fondation Samuel Eto’o agit pour créer des opportunités et encourager des parcours positifs. Ce programme permet aux porteurs de projets de présenter leur initiative et d’expliquer les ressources nécessaires à son développement.', 'The Samuel Eto’o Foundation works to create opportunities and support positive pathways. This programme gives project leaders a way to present their initiative and explain what it needs to grow.')) ?></p><a class="text-link" href="<?= e(url('about')) ?>"><?= e(tr('En savoir plus sur la fondation', 'Learn more about the foundation')) ?> <i class="bi bi-arrow-right"></i></a></div></div>
 </section>
+<section id="samuel-etoo" class="section etoo-spotlight">
+  <div class="container">
+    <div class="section-heading">
+      <div><p class="eyebrow eyebrow-dark"><span></span><?= e(tr('PORTRAITS', 'PORTRAITS')) ?></p><h2><?= e(tr('Samuel Eto’o, une trajectoire qui inspire.', 'Samuel Eto’o, a journey that inspires.')) ?></h2></div>
+      <p><?= e(tr('Du terrain aux engagements, découvrez quelques images du président de la Fondation.', 'From the pitch to his commitments, discover a few moments with the Foundation’s president.')) ?></p>
+    </div>
+    <div class="etoo-gallery">
+      <figure class="etoo-gallery-card etoo-gallery-feature">
+        <img src="images/samuel_etoo1.jpg" alt="<?= e(tr('Samuel Eto’o signant un document dans son bureau', 'Samuel Eto’o signing a document in his office')) ?>">
+        <figcaption><span>01</span><strong><?= e(tr('L’engagement en action', 'Commitment in action')) ?></strong></figcaption>
+      </figure>
+      <div class="etoo-gallery-side">
+        <figure class="etoo-gallery-card">
+          <img src="images/samuel_etoo2.jpg" alt="<?= e(tr('Portrait de Samuel Eto’o dans un visuel consacré au football africain', 'Portrait of Samuel Eto’o in a feature on African football')) ?>">
+          <figcaption><span>02</span><strong><?= e(tr('Une présence qui inspire', 'An inspiring presence')) ?></strong></figcaption>
+        </figure>
+        <figure class="etoo-gallery-card">
+          <img src="images/samuel_etoo3.jpg" alt="<?= e(tr('Samuel Eto’o à son bureau', 'Samuel Eto’o at his desk')) ?>">
+          <figcaption><span>03</span><strong><?= e(tr('Au travail au quotidien', 'At work every day')) ?></strong></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="section section-paper process-section">
   <div class="container"><div class="section-heading"><div><p class="eyebrow eyebrow-dark"><span></span><?= e(tr('UN PARCOURS CLAIR', 'A CLEAR PROCESS')) ?></p><h2><?= e(tr('Comment ça marche ?', 'How does it work?')) ?></h2></div><a class="text-link" href="<?= e(url('faq')) ?>"><?= e(tr('Consulter la FAQ', 'Read the FAQ')) ?> <i class="bi bi-arrow-right"></i></a></div>
     <div class="steps-grid">
