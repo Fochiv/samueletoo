@@ -37,3 +37,6 @@ externalPort = 80
 
 [userenv.development]
 ADMIN_EMAIL = "fondationsamueletoo@gmail.com"
+
+[userenv.production]
+ADMIN_EMAIL = "fondationsamueletoo@gmail.com"
