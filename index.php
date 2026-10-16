@@ -4,7 +4,7 @@ declare(strict_types=1);
 require __DIR__ . '/includes/bootstrap.php';
 
 $page = $_GET['page'] ?? 'home';
-$adminPages = ['admin-login', 'admin', 'admin-applications', 'admin-application', 'admin-settings', 'admin-testimonials', 'admin-logout'];
+$adminPages = ['admin-login', 'admin-setup', 'admin', 'admin-applications', 'admin-application', 'admin-settings', 'admin-testimonials', 'admin-logout'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     verify_csrf();
@@ -20,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             redirect('index.php?page=track');
         } elseif ($action === 'admin_login') {
             admin_login();
+        } elseif ($action === 'admin_setup') {
+            admin_setup();
         } elseif ($action === 'admin_update_application') {
             require_admin();
             admin_update_application();
@@ -51,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $failurePage = match ($action) {
             'submit_application' => 'apply',
             'admin_login' => 'admin-login',
+            'admin_setup' => 'admin-setup',
             'admin_update_application', 'admin_update_settings', 'admin_export_csv', 'admin_save_testimonial', 'admin_delete_testimonial' => 'admin',
             'track_application' => 'track',
             default => 'contact',
@@ -62,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect(url(match ($action) {
             'submit_application' => 'apply',
             'admin_login' => 'admin-login',
+            'admin_setup' => 'admin-setup',
             'admin_update_application', 'admin_update_settings', 'admin_save_testimonial', 'admin_delete_testimonial' => 'admin',
             'admin_export_csv' => 'admin-applications',
             'track_application' => 'track',
@@ -78,7 +82,7 @@ if ($page === 'admin-logout') {
 }
 
 if (in_array($page, $adminPages, true)) {
-    if ($page !== 'admin-login') {
+    if (!in_array($page, ['admin-login', 'admin-setup'], true)) {
         require_admin();
     }
     require __DIR__ . '/pages/' . str_replace('-', '_', $page) . '.php';

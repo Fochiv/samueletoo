@@ -1,9 +1,15 @@
 <?php
-$dbReady = true;
-try { db(); } catch (Throwable) { $dbReady = false; }
+$dbReady = false;
+$setupAvailable = false;
+try {
+    $setupAvailable = !(bool)db()->query('SELECT id FROM admins LIMIT 1')->fetchColumn();
+    $dbReady = true;
+} catch (Throwable) {
+    $dbReady = false;
+}
 ?>
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="/"><title>Administration — Fondation Samuel Eto’o</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="assets/css/app.css"></head><body class="admin-login-page">
 <main class="login-card"><a class="brand login-brand" href="index.php"><img src="logo.png" alt=""><span><?= e(tr('FONDATION SAMUEL ETO’O', 'SAMUEL ETO’O FOUNDATION')) ?></span></a><p class="eyebrow eyebrow-dark"><span></span>ESPACE SÉCURISÉ</p><h1>Administration</h1><p>Connectez-vous pour gérer les candidatures.</p>
 <?php $flash = get_flash(); if ($flash): ?><div class="alert alert-<?= e($flash['type']) ?>"><?= e($flash['message']) ?></div><?php endif; ?>
 <?php if (!$dbReady): ?><div class="alert alert-error">La base MySQL n’est pas configurée. Renseignez les variables DB_HOST, DB_NAME, DB_USER et DB_PASSWORD, puis importez database/schema.sql.</div><?php endif; ?>
-<form method="post" action="<?= e(url('admin-login')) ?>"><?= csrf_field() ?><input type="hidden" name="action" value="admin_login"><label class="field">Adresse e-mail<input type="email" name="email" value="<?= e(getenv('ADMIN_EMAIL') ?: '') ?>" autocomplete="username" required></label><label class="field">Mot de passe<input type="password" name="password" autocomplete="current-password" required></label><button class="button button-green button-wide" type="submit" <?= !$dbReady ? 'disabled' : '' ?>>Se connecter <i class="bi bi-arrow-right"></i></button></form><a class="login-back" href="index.php"><i class="bi bi-arrow-left"></i> Retour au site</a></main></body></html>
+<form method="post" action="<?= e(url('admin-login')) ?>"><?= csrf_field() ?><input type="hidden" name="action" value="admin_login"><label class="field">Adresse e-mail<input type="email" name="email" value="<?= e(getenv('ADMIN_EMAIL') ?: '') ?>" autocomplete="username" required></label><label class="field">Mot de passe<input type="password" name="password" autocomplete="current-password" required></label><button class="button button-green button-wide" type="submit" <?= !$dbReady ? 'disabled' : '' ?>>Se connecter <i class="bi bi-arrow-right"></i></button></form><?php if ($dbReady && $setupAvailable): ?><a class="login-setup" href="<?= e(url('admin-setup')) ?>">Première connexion ? Initialiser l’accès administrateur</a><?php endif; ?><a class="login-back" href="index.php"><i class="bi bi-arrow-left"></i> Retour au site</a></main></body></html>

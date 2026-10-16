@@ -325,6 +325,9 @@ img{max-width:100%;display:block}
 .login-card>.login-brand img{width:54px;height:54px}
 .login-card>.login-brand span{display:block}
 .login-card>.login-back{display:flex;justify-content:center;position:static;color:var(--ink);margin-top:17px}
+.login-setup{display:flex;justify-content:center;text-align:center;color:var(--green-dark);font-size:13px;font-weight:700;margin:18px 0 0}
+.login-setup:hover{color:var(--ink)}
+.login-card .button:disabled{opacity:.48;cursor:not-allowed;transform:none;filter:grayscale(.35)}
 @media(max-width:1000px){.main-nav{gap:11px}.main-nav a{font-size:11px}.site-header .brand{font-size:11px;letter-spacing:.035em}.site-header .brand img{width:44px;height:44px}.lang-switch{padding-left:12px}}
 @media(max-width:760px){.site-header .brand{font-size:10px;letter-spacing:.025em;gap:8px}.site-header .brand img{width:42px;height:42px}.header-actions{gap:8px}.lang-switch{border:0;padding:8px 2px;font-size:12px}.menu-toggle{font-size:28px}.hero-track-link{margin-top:12px}.back-to-top{right:15px;bottom:15px;width:44px;height:44px}}
 @media(max-width:390px){.site-header .brand{font-size:9px;gap:6px}.site-header .brand img{width:38px;height:38px}}

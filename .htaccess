@@ -4,6 +4,7 @@ Options -Indexes
   RewriteRule ^admin/?$ index.php?page=admin [QSA,L]
   RewriteRule ^admin/index\.php$ index.php?page=admin [QSA,L]
   RewriteRule ^admin/login\.php$ index.php?page=admin-login [QSA,L]
+  RewriteRule ^admin/setup\.php$ index.php?page=admin-setup [QSA,L]
   RewriteRule ^admin/logout\.php$ index.php?page=admin-logout [QSA,L]
   RewriteRule ^admin/applications\.php$ index.php?page=admin-applications [QSA,L]
   RewriteRule ^admin/application\.php$ index.php?page=admin-application [QSA,L]

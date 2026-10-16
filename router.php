@@ -9,6 +9,7 @@ $adminRoutes = [
     '/admin/' => 'admin',
     '/admin/index.php' => 'admin',
     '/admin/login.php' => 'admin-login',
+    '/admin/setup.php' => 'admin-setup',
     '/admin/logout.php' => 'admin-logout',
     '/admin/applications.php' => 'admin-applications',
     '/admin/application.php' => 'admin-application',

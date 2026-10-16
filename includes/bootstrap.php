@@ -103,6 +103,7 @@ function url(string $page, array $params = []): string {
     $adminRoutes = [
         'admin' => '/admin/',
         'admin-login' => '/admin/login.php',
+        'admin-setup' => '/admin/setup.php',
         'admin-logout' => '/admin/logout.php',
         'admin-applications' => '/admin/applications.php',
         'admin-application' => '/admin/application.php',
@@ -334,6 +335,57 @@ function admin_login(): never {
     $_SESSION['admin_name'] = $admin['display_name'];
     $_SESSION['login_attempts'] = 0;
     redirect(url('admin'));
+}
+
+function admin_setup(): never {
+    $email = strtolower(trim((string)(getenv('ADMIN_EMAIL') ?: '')));
+    $password = (string)(getenv('ADMIN_PASSWORD') ?: '');
+    $displayName = trim((string)(getenv('ADMIN_NAME') ?: 'Administrateur'));
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($password) < 14) {
+        flash('error', tr(
+            'Les variables ADMIN_EMAIL et ADMIN_PASSWORD (14 caractères minimum) doivent être configurées dans les secrets de l’hébergement.',
+            'Configure ADMIN_EMAIL and ADMIN_PASSWORD (at least 14 characters) in the hosting secrets.'
+        ));
+        redirect(url('admin-setup'));
+    }
+
+    if ($displayName === '' || mb_strlen($displayName) > 120) {
+        $displayName = 'Administrateur';
+    }
+
+    $pdo = db();
+    $lockName = 'samuel_etoo_admin_setup';
+    $lock = $pdo->prepare('SELECT GET_LOCK(?, 5)');
+    $lock->execute([$lockName]);
+    if ((int)$lock->fetchColumn() !== 1) {
+        flash('error', tr('L’initialisation est déjà en cours. Réessayez dans quelques instants.', 'Initialization is already in progress. Please try again shortly.'));
+        redirect(url('admin-setup'));
+    }
+
+    $alreadyInitialized = false;
+    try {
+        $alreadyInitialized = (bool)$pdo->query('SELECT id FROM admins LIMIT 1')->fetchColumn();
+        if (!$alreadyInitialized) {
+            $stmt = $pdo->prepare('INSERT INTO admins (email, password_hash, display_name) VALUES (?, ?, ?)');
+            $stmt->execute([$email, password_hash($password, PASSWORD_DEFAULT), $displayName]);
+        }
+    } catch (Throwable $error) {
+        try {
+            $pdo->prepare('SELECT RELEASE_LOCK(?)')->execute([$lockName]);
+        } catch (Throwable) {
+        }
+        throw $error;
+    }
+    $pdo->prepare('SELECT RELEASE_LOCK(?)')->execute([$lockName]);
+
+    if ($alreadyInitialized) {
+        flash('success', tr('Le compte administrateur est déjà initialisé. Connectez-vous.', 'The administrator account is already initialized. Please sign in.'));
+        redirect(url('admin-login'));
+    }
+
+    flash('success', tr('Le compte administrateur a été créé. Vous pouvez vous connecter.', 'The administrator account has been created. You can now sign in.'));
+    redirect(url('admin-login'));
 }
 
 function admin_update_application(): never {
