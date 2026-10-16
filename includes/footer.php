@@ -7,13 +7,13 @@
       <p><?= e(tr('Accompagner les idées qui créent des opportunités durables.', 'Supporting ideas that create lasting opportunities.')) ?></p>
       <nav class="footer-socials" aria-label="<?= e(tr('Réseaux sociaux', 'Social media')) ?>">
         <?php if (!empty($settings['whatsapp'])): $footerWhatsapp = preg_replace('/\D+/', '', $settings['whatsapp']); ?>
-          <a href="https://wa.me/<?= e($footerWhatsapp) ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp — <?= e($settings['whatsapp']) ?>"><i class="bi bi-whatsapp" aria-hidden="true"></i><span><?= e($settings['whatsapp']) ?></span></a>
+          <a href="https://wa.me/<?= e($footerWhatsapp) ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp — <?= e($settings['whatsapp']) ?>" title="WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
         <?php endif; ?>
         <?php if (!empty($settings['facebook_url'])): ?>
-          <a href="<?= e($settings['facebook_url']) ?>" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook" aria-hidden="true"></i><span>Facebook</span></a>
+          <a href="<?= e($settings['facebook_url']) ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
         <?php endif; ?>
         <?php if (!empty($settings['x_url'])): ?>
-          <a href="<?= e($settings['x_url']) ?>" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x" aria-hidden="true"></i><span>X</span></a>
+          <a href="<?= e($settings['x_url']) ?>" target="_blank" rel="noopener noreferrer" aria-label="X" title="X"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
         <?php endif; ?>
       </nav>
     </div>
