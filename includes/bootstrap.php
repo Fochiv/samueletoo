@@ -189,12 +189,18 @@ function db(): PDO {
 function site_settings(): array {
     static $settings;
     if (isset($settings)) return $settings;
+    $settings = [
+        'whatsapp' => '237678519844',
+        'facebook_url' => 'https://www.facebook.com/setoo99/',
+        'x_url' => 'https://x.com/SamuelEtoo',
+    ];
     try {
         $rows = db()->query('SELECT setting_key, setting_value FROM settings')->fetchAll();
-        $settings = [];
-        foreach ($rows as $row) $settings[$row['setting_key']] = $row['setting_value'];
+        foreach ($rows as $row) {
+            $settings[$row['setting_key']] = $row['setting_value'];
+        }
     } catch (Throwable) {
-        $settings = [];
+        // Keep public social links available even before the database is configured.
     }
     return $settings;
 }

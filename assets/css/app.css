@@ -198,6 +198,13 @@ img{max-width:100%;display:block}
 .site-footer{background:#19172f;color:#d7d6e0;padding:64px 0 25px}
 .footer-main{display:grid;grid-template-columns:1.35fr .8fr .9fr 1.25fr;gap:40px;padding-bottom:44px}
 .footer-brand p,.footer-cta p{color:#aaa9ba;font-size:13px;max-width:240px}
+.footer-socials{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.footer-socials a{display:inline-flex;align-items:center;gap:8px;padding:9px 11px;border:1px solid #39374d;border-radius:999px;color:#e4e3eb;font-size:12px;line-height:1.2;transition:background .2s,border-color .2s,color .2s}
+.footer-socials a:hover{background:#29273f;border-color:var(--green);color:#fff}
+.footer-socials i{font-size:16px}
+.footer-socials .bi-whatsapp{color:#25d366}
+.footer-socials .bi-facebook{color:#79aaff}
+.footer-socials .bi-twitter-x{color:#fff}
 .footer-main h3{color:#fff;font:700 14px "Manrope";margin:4px 0 17px}
 .footer-main>div:not(:first-child):not(.footer-cta) a{display:block;color:#bbbaca;font-size:13px;margin:10px 0}
 .footer-main a:hover{color:var(--green)}
